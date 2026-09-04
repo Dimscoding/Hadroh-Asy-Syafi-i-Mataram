@@ -68,14 +68,6 @@ export function WelcomeIntro() {
           <motion.div className="welcome-logo" aria-label="Logo Hadroh Asy-Syafi'i" initial={reducedMotion ? false : { y: 70, opacity: 0, filter: "blur(20px)" }} animate={{ y: 0, opacity: 1, filter: "blur(0px)" }} transition={{ duration: 1.25, ease: [0.2, 0.8, 0.2, 1] }}>
             <Image src="/logo-asy-syafii.png" alt="Logo Hadroh Asy-Syafi'i" width={434} height={572} priority />
           </motion.div>
-          <div className="welcome-folders" aria-label="Perjalanan Hadroh Asy-Syafi'i">
-            {[members[2], members[1], members[0]].map((member, index) => (
-              <motion.div className={`welcome-folder folder-${index + 1}`} key={member.name} initial={reducedMotion ? false : { y: 160, opacity: 0, filter: "blur(16px)" }} animate={{ y: 0, opacity: 1, filter: "blur(0px)" }} transition={{ duration: 1, delay: 0.2 + index * 0.16, ease: [0.2, 0.8, 0.2, 1] }}>
-                <div className="folder-thumb"><Image src={member.image} alt="" fill sizes="(max-width: 760px) 66vw, 360px" /></div>
-                <small>Perjalanan Hadroh Asy-Syafi&apos;i</small>
-              </motion.div>
-            ))}
-          </div>
           <motion.div className="welcome-copy" initial={reducedMotion ? false : { y: 46, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.85, delay: 0.75 }}>
             <p lang="ar" dir="rtl">السَّلَامُ عَلَيْكُمْ</p>
             <h1>Assalamu&apos;alaikum</h1>
