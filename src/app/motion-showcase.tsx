@@ -65,8 +65,8 @@ export function WelcomeIntro() {
         <motion.section className="welcome" aria-label="Selamat datang" initial={reducedMotion ? false : { opacity: 0 }} animate={{ opacity: 1 }} exit={reducedMotion ? { opacity: 0 } : { opacity: 0, y: -70, filter: "blur(14px)", scale: 1.035 }} transition={{ duration: reducedMotion ? 0.15 : 0.9, ease: [0.2, 0.8, 0.2, 1] }}>
           <div className="welcome-aura aura-one" aria-hidden="true" />
           <div className="welcome-aura aura-two" aria-hidden="true" />
-          <motion.div className="welcome-logo" aria-label="Tempat logo Hadroh Asy-Syafi'i" initial={reducedMotion ? false : { y: 70, opacity: 0, filter: "blur(22px)" }} animate={{ y: 0, opacity: 1, filter: "blur(5px)" }} transition={{ duration: 1.25, ease: [0.2, 0.8, 0.2, 1] }}>
-            <i>ASY</i><b aria-hidden="true">✦</b>
+          <motion.div className="welcome-logo" aria-label="Logo Hadroh Asy-Syafi'i" initial={reducedMotion ? false : { y: 70, opacity: 0, filter: "blur(20px)" }} animate={{ y: 0, opacity: 1, filter: "blur(0px)" }} transition={{ duration: 1.25, ease: [0.2, 0.8, 0.2, 1] }}>
+            <Image src="/logo-asy-syafii.png" alt="Logo Hadroh Asy-Syafi'i" width={434} height={572} priority />
           </motion.div>
           <div className="welcome-folders" aria-label="Perjalanan Hadroh Asy-Syafi'i">
             {[members[2], members[1], members[0]].map((member, index) => (
@@ -177,7 +177,7 @@ export function PersonGallery() {
           const offset = wrapOffset(index, active, members.length);
           const distance = Math.abs(offset);
           return (
-            <button className={`person-card ${offset === 0 ? "person-active" : ""}`} key={member.name} style={{ "--offset": offset, "--depth": distance, "--card-z": 20 - distance } as CSSProperties} onClick={() => select(index)} aria-label={`Tampilkan ${member.name}, ${member.role}`} aria-hidden={distance > 4} tabIndex={distance > 4 ? -1 : 0}>
+            <button className={`person-card ${offset === 0 ? "person-active" : ""} ${distance > 2 ? "person-far" : ""}`} key={member.name} style={{ "--person-x": `${offset * 238}px`, "--person-x-mobile": `${offset * 138}px`, "--person-scale": 1 - distance * 0.085, "--person-scale-mobile": 1 - distance * 0.1, "--person-rotate": `${offset * -7}deg`, "--person-opacity": Math.max(0, 1 - distance * 0.13), "--card-z": 20 - distance } as CSSProperties} onClick={() => select(index)} aria-label={`Tampilkan ${member.name}, ${member.role}`} aria-hidden={distance > 4} tabIndex={distance > 4 ? -1 : 0}>
               <span className="person-image"><Image src={member.image} alt="" fill sizes="(max-width: 760px) 62vw, 290px" /></span>
               <span className="person-info"><strong>{member.name}</strong><small>{member.role}</small></span>
             </button>
