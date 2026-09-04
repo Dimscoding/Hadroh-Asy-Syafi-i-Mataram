@@ -1,9 +1,11 @@
 import Link from "next/link";
-import { HeroDeck, MemberCarousel } from "./motion-showcase";
+import { ActivityGallery, HeroDeck, PersonGallery, RevealController, WelcomeIntro } from "./motion-showcase";
 
 export default function Home() {
   return (
     <main className="home-page">
+      <WelcomeIntro />
+      <RevealController />
       <section className="hero">
         <header className="site-header">
           <Link className="brand" href="/" aria-label="Hadroh Asy-Syafi'i - Beranda">
@@ -37,27 +39,23 @@ export default function Home() {
         <div><span>✦ Sholawat</span><span>✦ Syiar</span><span>✦ Silaturahmi</span><span>✦ Kebersamaan</span><span>✦ Sholawat</span><span>✦ Syiar</span><span>✦ Silaturahmi</span></div>
       </div>
 
-      <section className="about section" id="tentang">
-        <div className="about-title">
-          <p className="section-label">Tentang Kami</p>
-          <h2>Bukan sekadar irama. Ini tentang <span>doa</span>, persaudaraan, dan cinta.</h2>
+      <PersonGallery />
+      <ActivityGallery />
+
+      <section className="faith-section" id="tentang">
+        <div className="faith-orbit" aria-hidden="true"><i /><i /><i /></div>
+        <div className="faith-copy reveal">
+          <p className="section-label section-label-light">Lebih dari Sebuah Lantunan</p>
+          <h2>Bukan sekadar alunan musik hadroh.</h2>
+          <p>Setiap tabuhan adalah pengingat, setiap sholawat adalah doa, dan setiap pertemuan adalah jalan untuk mempererat ukhuwah. Hadroh Asy-Syafi&apos;i hadir untuk merawat cinta kepada Rasulullah ﷺ melalui syiar yang teduh dan penuh adab.</p>
+          <blockquote>“Dengan sholawat, hati yang jauh kembali dekat.”</blockquote>
         </div>
-        <div className="about-grid">
-          <div className="feature-card feature-photo"><span>Foto utama grup</span><strong>Hadroh Asy-Syafi&apos;i</strong></div>
-          <div className="feature-card feature-quote"><small>Kebersamaan</small><strong>Satu majelis,<br />satu cinta.</strong><p>Menjaga syiar melalui sholawat dan silaturahmi.</p></div>
-          <div className="mini-stack"><div><small>Semangat</small><strong>100%</strong></div><div><small>Tujuan</small><strong>Syiar</strong></div></div>
+        <div className="faith-cards reveal">
+          <article><span>01</span><h3>Syiar</h3><p>Menyampaikan kebaikan dengan cara yang menenteramkan.</p></article>
+          <article><span>02</span><h3>Ukhuwah</h3><p>Menjaga persaudaraan dalam setiap langkah dan pertemuan.</p></article>
+          <article><span>03</span><h3>Mahabbah</h3><p>Menumbuhkan cinta kepada Rasulullah ﷺ melalui sholawat.</p></article>
         </div>
       </section>
-
-      <section className="section activity-section" id="kegiatan">
-        <div className="section-heading">
-          <div><p className="section-label">Dokumentasi</p><h2>Momen yang tumbuh bersama jamaah.</h2></div>
-          <p className="heading-note">Kartu pada bagian pembuka akan berisi foto-foto kegiatan asli.</p>
-        </div>
-        <div className="activity-callout"><span>01</span><p>Majelis • Undangan • Latihan • Perjalanan</p><a href="#personel">Kenali personel <b>↘</b></a></div>
-      </section>
-
-      <MemberCarousel />
 
       <section className="contact section" id="kontak">
         <div><p className="section-label section-label-light">Silaturahmi</p><h2>Ingin mengundang Hadroh Asy-Syafi&apos;i?</h2></div>
