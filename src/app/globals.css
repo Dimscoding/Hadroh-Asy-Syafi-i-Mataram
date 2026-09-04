@@ -39,10 +39,10 @@ button { font-family: inherit; }
 .welcome-logo { align-self: center; height: 110px; justify-self: center; position: relative; width: 92px; }
 .welcome-logo img { height: 100%; object-fit: contain; width: 100%; }
 .welcome-folders { align-self: center; height: clamp(240px, 34vh, 310px); justify-self: center; perspective: 1100px; position: relative; width: min(760px, 94vw); }
-.welcome-folder { background: #f7f7f2; border: 1px solid white; border-radius: 22px 22px 42px 42px; box-shadow: 0 35px 80px rgba(0, 0, 0, 0.4); height: clamp(220px, 29vh, 270px); left: 50%; margin-left: -175px; padding: 10px; position: absolute; top: 50%; transform-origin: center bottom; width: 350px; }
-.folder-1 { transform: translate(-165px, -46%) rotate(-7deg) scale(0.88); z-index: 1; }
-.folder-2 { transform: translate(0, -50%) scale(1); z-index: 3; }
-.folder-3 { transform: translate(165px, -46%) rotate(7deg) scale(0.88); z-index: 2; }
+.welcome-folder { background: #f7f7f2; border: 1px solid white; border-radius: 22px 22px 42px 42px; box-shadow: 0 35px 80px rgba(0, 0, 0, 0.4); height: clamp(220px, 29vh, 270px); left: 50%; padding: 10px; position: absolute; top: 50%; transform-origin: center bottom; translate: 0 -50%; width: 350px; }
+.folder-1 { margin-left: -335px; rotate: -7deg; scale: 0.88; z-index: 1; }
+.folder-2 { margin-left: -175px; z-index: 3; }
+.folder-3 { margin-left: -15px; rotate: 7deg; scale: 0.88; z-index: 2; }
 .folder-thumb { border-radius: 15px; height: calc(100% - 54px); overflow: hidden; position: relative; }
 .folder-thumb img { object-fit: cover; object-position: center 18%; }
 .welcome-folder small { color: #243838; display: block; font-size: 12px; font-weight: 750; padding: 14px 8px 8px; }
@@ -188,10 +188,10 @@ footer { color: var(--muted); display: flex; font-size: 13px; justify-content: s
   .welcome::after { height: 105vw; width: 105vw; }
   .welcome-logo { height: 84px; width: 64px; }
   .welcome-folders { height: 225px; width: 100vw; }
-  .welcome-folder { height: 195px; margin-left: -110px; padding: 8px; width: 220px; }
-  .folder-1 { transform: translate(-78px, -45%) rotate(-8deg) scale(0.86); }
-  .folder-2 { transform: translate(0, -50%) scale(1); }
-  .folder-3 { transform: translate(78px, -45%) rotate(8deg) scale(0.86); }
+  .welcome-folder { height: 195px; padding: 8px; width: 220px; }
+  .folder-1 { margin-left: -188px; rotate: -8deg; scale: 0.86; }
+  .folder-2 { margin-left: -110px; }
+  .folder-3 { margin-left: -32px; rotate: 8deg; scale: 0.86; }
   .folder-thumb { height: calc(100% - 48px); }
   .welcome-copy p { font-size: 25px; }
   .welcome-copy h1 { font-size: clamp(34px, 10vw, 46px); }
@@ -245,9 +245,10 @@ footer { color: var(--muted); display: flex; font-size: 13px; justify-content: s
   .welcome { grid-template-rows: 62px minmax(165px, 1fr) auto; padding-block: 10px 14px; }
   .welcome-logo { height: 62px; width: 48px; }
   .welcome-folders { height: 176px; }
-  .welcome-folder { height: 160px; margin-left: -92px; width: 184px; }
-  .folder-1 { transform: translate(-64px, -45%) rotate(-8deg) scale(0.86); }
-  .folder-3 { transform: translate(64px, -45%) rotate(8deg) scale(0.86); }
+  .welcome-folder { height: 160px; width: 184px; }
+  .folder-1 { margin-left: -156px; }
+  .folder-2 { margin-left: -92px; }
+  .folder-3 { margin-left: -28px; }
   .welcome-copy p { font-size: 20px; }
   .welcome-copy h1 { font-size: 32px; margin-bottom: 4px; }
   .welcome-copy > span { font-size: 12px; }
