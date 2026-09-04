@@ -1,49 +1,51 @@
-import Link from "next/link";
-import { ActivityGallery, HeroDeck, PersonGallery, RevealController, WelcomeIntro } from "./motion-showcase";
+import {
+  ActivityGallery,
+  FloatingNavigation,
+  HeroDeck,
+  PersonGallery,
+  RevealController,
+  WelcomeIntro,
+} from "./motion-showcase";
 
 export default function Home() {
   return (
     <main className="home-page">
       <WelcomeIntro />
       <RevealController />
-      <section className="hero">
-        <header className="site-header">
-          <Link className="brand" href="/" aria-label="Hadroh Asy-Syafi'i - Beranda">
-            <span className="brand-mark" aria-hidden="true">ASY</span>
-            <span>Hadroh Asy-Syafi&apos;i</span>
-          </Link>
-          <nav aria-label="Navigasi utama">
-            <a href="#tentang">Tentang</a>
-            <a href="#kegiatan">Kegiatan</a>
-            <a href="#personel">Personel</a>
-            <a href="#kontak">Kontak</a>
-          </nav>
-          <a className="nav-contact" href="#kontak">Hubungi Kami</a>
-        </header>
+      <FloatingNavigation />
+
+      <section className="hero" id="beranda">
+        <div className="hero-ornament ornament-left" aria-hidden="true">✦</div>
+        <div className="hero-ornament ornament-right" aria-hidden="true">✦</div>
         <div className="hero-copy">
-          <div className="eyebrow">Syiar <span>•</span> Sholawat <span>•</span> Silaturahmi</div>
+          <p className="eyebrow">Syiar <span>•</span> Sholawat <span>•</span> Silaturahmi</p>
           <h1>Menyatukan hati melalui <em>lantunan sholawat.</em></h1>
           <p>Ruang digital Hadroh Asy-Syafi&apos;i untuk berbagi kegiatan, perjalanan, dan kabar kepada jamaah.</p>
           <div className="hero-actions">
-            <a className="button button-ghost" href="#kegiatan">Lihat kegiatan</a>
-            <a className="button button-primary" href="#kontak">Hubungi kami <span>↗</span></a>
+            <a className="button button-ghost" href="#personel">Kenali personel</a>
+            <a className="button button-primary" href="#kegiatan">Lihat kegiatan <span>↗</span></a>
           </div>
         </div>
         <HeroDeck />
-        <div className="cloud-field" aria-hidden="true">
-          <i /><i /><i /><i /><i />
-        </div>
       </section>
 
-      <div className="value-ticker" aria-label="Nilai Hadroh Asy-Syafi'i">
-        <div><span>✦ Sholawat</span><span>✦ Syiar</span><span>✦ Silaturahmi</span><span>✦ Kebersamaan</span><span>✦ Sholawat</span><span>✦ Syiar</span><span>✦ Silaturahmi</span></div>
+      <div className="sholawat-ticker" aria-label="Sholawat kepada Nabi Muhammad">
+        <div className="sholawat-track">
+          {[0, 1].map((copy) => (
+            <div className="sholawat-group" key={copy} aria-hidden={copy === 1}>
+              <span className="ticker-star">✦</span>
+              <strong lang="ar" dir="rtl">اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ</strong>
+              <span>Allahumma Sholli Ala Sayyidina Muhammad Wa Ala Ali Sayyidina Muhammad</span>
+            </div>
+          ))}
+        </div>
       </div>
 
       <PersonGallery />
       <ActivityGallery />
 
       <section className="faith-section" id="tentang">
-        <div className="faith-orbit" aria-hidden="true"><i /><i /><i /></div>
+        <div className="faith-ornament" aria-hidden="true"><span>✦</span><i /><i /></div>
         <div className="faith-copy reveal">
           <p className="section-label section-label-light">Lebih dari Sebuah Lantunan</p>
           <h2>Bukan sekadar alunan musik hadroh.</h2>
@@ -58,7 +60,7 @@ export default function Home() {
       </section>
 
       <section className="contact section" id="kontak">
-        <div><p className="section-label section-label-light">Silaturahmi</p><h2>Ingin mengundang Hadroh Asy-Syafi&apos;i?</h2></div>
+        <div><p className="section-label">Silaturahmi</p><h2>Ingin mengundang Hadroh Asy-Syafi&apos;i?</h2></div>
         <p>Kontak WhatsApp dan Instagram akan ditambahkan setelah data resmi grup tersedia.</p>
       </section>
 
