@@ -1,7 +1,7 @@
+import Image from "next/image";
 import {
   ActivityGallery,
   FloatingNavigation,
-  HeroDeck,
   PersonGallery,
   RevealController,
   WelcomeIntro,
@@ -15,6 +15,10 @@ export default function Home() {
       <FloatingNavigation />
 
       <section className="hero" id="beranda">
+        <div className="hero-landscape" aria-hidden="true">
+          <Image src="/hero-landscape.webp" alt="" fill priority sizes="100vw" />
+        </div>
+        <div className="hero-scrim" aria-hidden="true" />
         <div className="hero-ornament ornament-left" aria-hidden="true">✦</div>
         <div className="hero-ornament ornament-right" aria-hidden="true">✦</div>
         <div className="hero-copy">
@@ -26,7 +30,6 @@ export default function Home() {
             <a className="button button-primary" href="#kegiatan">Lihat kegiatan <span>↗</span></a>
           </div>
         </div>
-        <HeroDeck />
       </section>
 
       <div className="sholawat-ticker" aria-label="Sholawat kepada Nabi Muhammad">
@@ -60,8 +63,15 @@ export default function Home() {
       </section>
 
       <section className="contact section" id="kontak">
-        <div><p className="section-label">Silaturahmi</p><h2>Ingin mengundang Hadroh Asy-Syafi&apos;i?</h2></div>
-        <p>Kontak WhatsApp dan Instagram akan ditambahkan setelah data resmi grup tersedia.</p>
+        <div className="contact-copy"><p className="section-label">Silaturahmi</p><h2>Ingin mengundang Hadroh Asy-Syafi&apos;i?</h2><p>Hubungi kami untuk undangan majelis, pernikahan, dan kegiatan keislaman.</p></div>
+        <div className="contact-links">
+          <a href="https://wa.me/6287865863912" target="_blank" rel="noreferrer" aria-label="Hubungi Hadroh Asy-Syafi'i melalui WhatsApp">
+            <span>WhatsApp</span><strong>+62 878-6586-3912</strong><b aria-hidden="true">↗</b>
+          </a>
+          <a href="https://www.instagram.com/hadroh_asysyafii_official/" target="_blank" rel="noreferrer" aria-label="Buka Instagram Hadroh Asy-Syafi'i">
+            <span>Instagram</span><strong>@hadroh_asysyafii_official</strong><b aria-hidden="true">↗</b>
+          </a>
+        </div>
       </section>
 
       <footer><span>© 2026 Hadroh Asy-Syafi&apos;i</span><span>Sholawat menyatukan hati.</span></footer>

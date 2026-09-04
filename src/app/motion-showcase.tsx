@@ -113,40 +113,6 @@ export function FloatingNavigation() {
   );
 }
 
-export function HeroDeck() {
-  const featured = members.slice(0, 9);
-  const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const reducedMotion = useReducedMotion();
-  const move = (step: number) => setActive((current) => (current + step + featured.length) % featured.length);
-
-  useEffect(() => {
-    if (paused || reducedMotion) return;
-    const timer = window.setInterval(() => setActive((current) => (current + 1) % featured.length), 5200);
-    return () => window.clearInterval(timer);
-  }, [paused, reducedMotion, featured.length]);
-
-  return (
-    <div className="hero-deck-wrap" onPointerEnter={() => setPaused(true)} onPointerLeave={() => setPaused(false)}>
-      <motion.div className="hero-deck" drag="x" dragConstraints={{ left: 0, right: 0 }} dragElastic={0.12} onDragEnd={(_, info) => { if (Math.abs(info.offset.x) > 45) move(info.offset.x > 0 ? -1 : 1); }}>
-        {featured.map((member, index) => {
-          const offset = wrapOffset(index, active, featured.length);
-          const distance = Math.abs(offset);
-          const hidden = distance > 3;
-          return (
-            <motion.button type="button" className="deck-card" key={member.name} aria-label={`Tampilkan ${member.name}`} aria-hidden={hidden} tabIndex={hidden ? -1 : 0} onClick={() => offset === 0 ? document.getElementById("personel")?.scrollIntoView() : setActive(index)} animate={{ x: `calc(${offset} * var(--deck-step))`, y: distance * distance * 15, rotate: offset * 7, scale: offset === 0 ? 1.08 : 1 - Math.min(distance * 0.08, 0.24), opacity: hidden ? 0 : 1 }} transition={{ type: "spring", stiffness: 240, damping: 28, mass: 0.9 }} style={{ zIndex: 10 - distance }}>
-              <span className="deck-glow" aria-hidden="true" />
-              <Image src={member.image} alt="" fill sizes="(max-width: 760px) 32vw, 170px" />
-              <small>{member.name}</small>
-            </motion.button>
-          );
-        })}
-      </motion.div>
-      <div className="deck-controls"><button onClick={() => move(-1)} aria-label="Geser ke kiri">←</button><span>{String(active + 1).padStart(2, "0")} / {String(featured.length).padStart(2, "0")}</span><button onClick={() => move(1)} aria-label="Geser ke kanan">→</button></div>
-    </div>
-  );
-}
-
 export function PersonGallery() {
   const [active, setActive] = useState(0);
   const [opened, setOpened] = useState<number | null>(null);
