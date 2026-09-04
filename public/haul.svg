@@ -1,0 +1,15 @@
+<svg viewBox="0 0 320 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0B4F82"/>
+      <stop offset="1" stop-color="#7FC9A4"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="400" fill="url(#g2)"/>
+  <path d="M160 40 L172 72 L206 72 L178 92 L188 124 L160 104 L132 124 L142 92 L114 72 L148 72 Z" fill="#D8B26B"/>
+  <g fill="#EAF6F1" opacity="0.9">
+    <path d="M40 320 L60 260 Q80 240 100 260 L120 320 Z"/>
+    <path d="M110 330 L135 250 Q160 225 185 250 L210 330 Z"/>
+    <path d="M200 320 L220 260 Q240 240 260 260 L280 320 Z"/>
+  </g>
+</svg>

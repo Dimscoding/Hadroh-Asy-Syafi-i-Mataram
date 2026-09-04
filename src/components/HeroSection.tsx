@@ -1,21 +1,24 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Navbar from "./Navbar";
 
 export type ActivityCard = {
   title: string;
   meta: string;
-  /** Optional image path once real documentation photos are ready. */
-  image?: string;
+  /** Path to the activity photo. Swap these for real documentation photos
+   *  by dropping a JPG/PNG into /public/kegiatan and updating the path. */
+  image: string;
 };
 
 const DEFAULT_CARDS: ActivityCard[] = [
-  { title: "Rutinan Malam Jumat", meta: "Setiap pekan" },
-  { title: "Haul Akbar", meta: "Tahunan" },
-  { title: "Silaturahmi Jamaah", meta: "Dokumentasi" },
-  { title: "Latihan Personel", meta: "Setiap pekan" },
-  { title: "Undangan Perform", meta: "Sesuai jadwal" },
+  { title: "Rutinan Malam Jumat", meta: "Setiap pekan", image: "/kegiatan/rutinan.svg" },
+  { title: "Haul Akbar", meta: "Tahunan", image: "/kegiatan/haul.svg" },
+  { title: "Silaturahmi Jamaah", meta: "Dokumentasi", image: "/kegiatan/silaturahmi.svg" },
+  { title: "Latihan Personel", meta: "Setiap pekan", image: "/kegiatan/latihan.svg" },
+  { title: "Undangan Perform", meta: "Sesuai jadwal", image: "/kegiatan/undangan.svg" },
 ];
 
 // Spread the cards along a shallow arc, tallest in the middle.
@@ -42,9 +45,12 @@ export default function HeroSection({ cards = DEFAULT_CARDS }: { cards?: Activit
 
   return (
     <section
+      id="beranda"
       ref={sectionRef}
       className="relative flex min-h-[100svh] flex-col items-center overflow-hidden bg-gradient-to-b from-sky-deep via-sky-bright to-cloud pt-28 pb-40"
     >
+      <Navbar />
+
       {/* Centered headline */}
       <motion.div
         style={{ y: textY, opacity: textOpacity }}
@@ -93,7 +99,15 @@ export default function HeroSection({ cards = DEFAULT_CARDS }: { cards?: Activit
             >
               <div className="aspect-[4/5] w-full rounded-2xl bg-cloud p-3 shadow-[0_18px_40px_-12px_rgba(11,79,130,0.45)]">
                 <div className="flex h-full flex-col justify-between">
-                  <div className="h-2/3 w-full rounded-xl bg-gradient-to-br from-mint/50 to-sky-bright/20" />
+                  <div className="relative h-2/3 w-full overflow-hidden rounded-xl">
+                    <Image
+                      src={card.image}
+                      alt={card.title}
+                      fill
+                      sizes="160px"
+                      className="object-cover"
+                    />
+                  </div>
                   <div>
                     <p className="text-xs font-semibold text-ink">{card.title}</p>
                     <p className="text-[11px] text-ink/50">{card.meta}</p>
